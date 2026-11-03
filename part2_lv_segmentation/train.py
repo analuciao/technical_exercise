@@ -5,7 +5,7 @@ import segmentation_models_pytorch as smp
 import torch
 from torch.utils.data import DataLoader, Dataset
 
-from part2_lv_segmentation.config import (BATCH_SIZE, DATA_DIR, ENCODER, EPOCHS, IMG_SIZE, LR, MODEL_PATH,
+from config import (BATCH_SIZE, DATA_DIR, ENCODER, EPOCHS, IMG_SIZE, LR, MODEL_PATH,
                     PATIENCE, THRESHOLD)
 
 torch.manual_seed(0)       # same shuffling and initialization every run

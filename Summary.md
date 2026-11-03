@@ -1,7 +1,17 @@
-Findings:
-  1. After reviewing the DICOM files provided, I discovered the presence of several identifying names for referring physicians. Before these files are shared, the provided script should be run to deidentify the PHI information, which has been displayed in phi_found.csv. Additionally, some of the videos do not have sufficient frames to record an entire heartbeat. These videos should either be removed or replaced with longer videos. Some of the videos could not be opened as a DICOM — these should be removed from the dataset. 
-  2. Compared with the expert measurements, the model I trained performed well. I used the Chamfer distance which measures the average distance between the closest points of the two outlines to evaluate the model's performance. Additionally, the model achieved a Validation Dice score of 0.9 after passing through the data 15 times. Still, there were some cases where the expert vs. the predicted area had a noticeable difference. 
-  3. With more time, I would investigate potential augmentations when training the data in order to improve the model's performance (similarity to expert tracings). For example, slightly rotating the image or increasing the brightness. I could also investigate alternative metrics to measure the model performance.
+1. What problems did you find in the DICOM files, and what should be fixed before they are shared?
 
-Challenges:
-    During this exercise, I was challenged to investigate best practices and approaches for image segmentations, something I was unfamiliar with. I opted to train a lightweight model instead of image processing given that there was ample training data, meaning a model would be likely to have good performance. Something that was challenging was determining which configurations were most relevant to optimizing performance, and not over-writing code. Additionally, I was initially a bit confused by the DICOM file structure: how to identify which information was considered PHI, and best practices for de-identifying the data (for example, would removing the header altogether affect the file structure?) I spent ~2 hours on the data cleaning portion and ~3 hours on the image analysis. 
+Of 160 files in the release, 134 are usable videos from 105 distinct patients. The rest had problems:
+
+Unusable files: 2 could not be opened as DICOM, 3 failed the SHA256 fingerprint check (likely corrupted or altered), 6 were duplicates of other files, 7 were single images rather than videos, and 5 were shorter than one heartbeat (under 1 second at 60 bpm). 2 files listed in echo-record-list.csv were missing from the folder. These should be removed or replaced, and the missing files located.
+
+Patient information the earlier anonymization missed: [e.g. real MRNs in PatientID, names in vendor-specific private tags, and unshifted dates]. Dates in this release were shifted to around 2150, so any date in 2026 or earlier was treated as real. Some videos also had the patient’s name printed in the top-left corner of the image.
+
+Before sharing, the data should be replaced with the cleaned copies my script produces. These replace names and IDs with consistent pseudonyms (so each patient’s videos stay linked), blank other identifying fields, remove private tags, and black out the printed text on every frame. Every cleaned file was reopened and checked that none of the names or IDs found remain (134/134 passed). 
+
+1. How did your measurements compare with the experts’? Where did your method struggle, and why?
+
+I fine-tuned a U-Net (ImageNet-pretrained resnet34 encoder) on about 15,000 expert-traced frames from the training split. Training a model fit better than manual drawing or classic image processing, given the amount of labeled data and how noisy echo images are. On held-out data, predicted outlines overlapped the experts’ with a mean Dice score of 0.909. Fractional area change (FAC), a 2D proxy for ejection fraction, differed from the experts’ by 5.4 points on average, and correlated with the dataset’s EF at 0.75.
+
+3. One thing you would do differently with more time
+
+I would add data augmentation during training: small rotations and brightness/contrast changes. Echo images vary considerably in probe angle and gain between patients and machines, and augmentation would expose the model to that variety. That should reduce the cases where it struggled on faint or unusually positioned ventricles.

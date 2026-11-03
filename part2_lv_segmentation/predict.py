@@ -6,7 +6,7 @@ import pandas as pd
 import segmentation_models_pytorch as smp
 import torch
 
-from part2_lv_segmentation.config import DATA_DIR, EVAL_SPLIT, FILELIST_PATH, MODEL_PATH, OUTPUT_DIR, THRESHOLD, TRACINGS_PATH
+from config import DATA_DIR, EVAL_SPLIT, FILELIST_PATH, MODEL_PATH, OUTPUT_DIR, THRESHOLD, TRACINGS_PATH
 
 device = "mps" if torch.backends.mps.is_available() else "cpu"
 

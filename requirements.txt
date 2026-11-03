@@ -1,0 +1,10 @@
+torch
+torchvision
+segmentation-models-pytorch
+pydicom>=3.0
+numpy
+pandas
+opencv-python
+scikit-image
+matplotlib
+ 

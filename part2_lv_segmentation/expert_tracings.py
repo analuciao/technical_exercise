@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from skimage.draw import polygon
  
-from part2_lv_segmentation.config import (DATA_DIR, FILELIST_PATH, LIMITS, OUTPUT_DIR, PLOT_CHECK,
+from config import (DATA_DIR, FILELIST_PATH, LIMITS, OUTPUT_DIR, PLOT_CHECK,
                     TRACINGS_PATH, VIDEO_DIR)
  
  
