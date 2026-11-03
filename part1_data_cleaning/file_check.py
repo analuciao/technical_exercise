@@ -19,8 +19,8 @@ PREVIEW_DIR = OUT_DIR / "previews"
 MIN_SECONDS = 1.0          # one heartbeat at 60 bpm
 MIN_FRAMES_FALLBACK = 40   # only used when the header has no FrameTime
 
-# --- step 2 settings ---
-CURRENT_YEAR = 2026        # shifted dates are in the future (~2150); anything <= this is real
+# step 2 
+CURRENT_YEAR = 2026        # shifted dates are in the future (~2150)
 PHI_KEYWORDS = {
     "PatientName", "PatientID", "OtherPatientIDs", "PatientBirthDate", "PatientBirthTime",
     "AccessionNumber", "PatientAddress", "PatientTelephoneNumbers",
@@ -28,10 +28,10 @@ PHI_KEYWORDS = {
 }
 TEXT_VRS = {"LO", "SH", "ST", "LT", "UT"}
 
-# Burned-in names: look at the images in PREVIEW_DIR, then fill these in.
+# Burned-in names
 BURN_IN_BOXES = [(0, 43, 0, 50), (0, 23, 0,65) 
        ]       # (y_start, y_end, x_start, x_end) of the region to black out
-BURNED_IN_FILES = set()    # rel paths with a printed name, e.g. {"files/abc.dcm"}
+BURNED_IN_FILES = set()    
 
 
 @dataclass
@@ -45,7 +45,7 @@ class FileResult:
         self.reasoning.append(reason)
 
 
-# ---------- loading reference files ----------
+# loading reference files 
 
 def load_expected_checksums(path):
     expected = {}
@@ -53,7 +53,7 @@ def load_expected_checksums(path):
         if not line.strip():
             continue
         checksum, name = line.split(maxsplit=1)
-        expected[Path(name.lstrip("*")).name] = checksum   # sha256sum may prefix names with *
+        expected[Path(name.lstrip("*")).name] = checksum   
     return expected
 
 
@@ -62,7 +62,7 @@ def load_echo_list(path):
         return {row["dicom_filepath"] for row in csv.DictReader(f)}
 
 
-# ---------- step 1 checks ----------
+# step 1 checks 
 
 def sha256(file_path):
     with open(file_path, "rb") as f:
@@ -96,7 +96,7 @@ def read_dicom(file_path, result):
 
 
 def check_pixels(ds, result):
-    """dcmread is lazy: the header can load while the image is missing or broken."""
+    """the header can load while the image is missing or broken."""
     if "PixelData" not in ds:
         result.fail("No image data in file")
         return False
@@ -130,17 +130,17 @@ def check_heartbeat(ds, num_frames, result):
         result.fail(f"Too short for one heartbeat: only {num_frames} frames")
 
 
-# ---------- step 2: finding PHI ----------
+# step 2: finding PHI
 
 def as_text(value):
-    """Private tags often hold raw bytes; turn any value into searchable uppercase text."""
+    """turn any value into searchable uppercase text."""
     if isinstance(value, bytes):
         value = value.decode("latin-1", errors="ignore")
     return str(value).strip().upper()
 
 
 def collect_identifiers(ds):
-    """First pass: gather this file's names and IDs so we can search free text for them."""
+    """First pass: gather file's names and IDs so we can search free text for them."""
     known = set()
     for elem in ds.iterall():
         if elem.is_empty:
@@ -180,7 +180,7 @@ def find_reason(elem, known):
 
 
 def scan_header(ds, known):
-    """Second pass: list every PHI finding. Detection only, does not change ds."""
+    """Second pass: list every PHI finding"""
     findings = []
     for elem in ds.iterall():
         if elem.is_empty or elem.tag.is_private_creator:
@@ -190,13 +190,10 @@ def scan_header(ds, known):
             value = as_text(elem.value)
             findings.append([str(elem.tag), elem.keyword or elem.name, elem.VR,
                              value[:60] + ("..." if len(value) > 60 else ""), reason])
-    if ds.get("BurnedInAnnotation") == "YES":
-        findings.append(["(0028,0301)", "BurnedInAnnotation", "CS", "YES",
-                         "Header says text is printed on the image"])
     return findings
 
 
-# ---------- step 2: cleaning ----------
+# step 2: cleaning
 
 def save_preview(ds, out_path):
     """Save the first frame as a PNG so you can look for printed names."""
@@ -209,7 +206,7 @@ def black_out(ds, boxes):
     """Paint the box black on every frame."""
     arr = ds.pixel_array.copy()
     for y0, y1, x0, x1 in boxes:
-        arr[:, y0:y1, x0:x1] = 0     # works for gray (F,H,W) and color (F,H,W,3)
+        arr[:, y0:y1, x0:x1] = 0     
         if ds.SamplesPerPixel == 3:
             arr[:, y0:y1, x0:x1, :] = 0
         photometric = "RGB"          # pixel_array returns RGB for color images
@@ -252,8 +249,6 @@ def verify(cleaned_path, known):
     return leaks
 
 
-# ---------- main ----------
-
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     expected = load_expected_checksums(SUMS_PATH)
@@ -280,7 +275,7 @@ def main():
             files_present.add(rel_path)
             result = FileResult(name=rel_path)
 
-            # --- step 1 ---
+            # step 1
             actual = sha256(file_path)
             check_checksum(file_path, actual, expected, result)
             check_duplicate(actual, seen_hashes, result)
@@ -298,12 +293,12 @@ def main():
             if ds is None:
                 continue
 
-            # --- step 2: find PHI in every readable file ---
+            # step 2: find PHI in every readable file 
             known = collect_identifiers(ds)
             for finding in scan_header(ds, known):
                 phi_writer.writerow([rel_path, *finding])
 
-            # --- step 2: clean usable files only ---
+            # step 2: clean usable files only 
             if result.usability != "Usable":
                 continue
             usable_count += 1

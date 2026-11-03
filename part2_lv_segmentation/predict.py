@@ -119,13 +119,12 @@ def main():
     summary.to_csv(OUTPUT_DIR / f"image_results_{prefix}.csv", index=False)
     print(summary.round(2).head(10))
 
-    # --- metrics ---
+    # metrics
     dices = [dice(p, e) for p, e in zip(preds, experts)]
     fac_err = (summary.FAC_pred - summary.FAC_expert).abs()
     print(f"\n[{EVAL_SPLIT}] {len(frames)} frames, {len(summary)} videos")
     print(f"Mean Dice: {np.mean(dices):.3f}")
     print(f"FAC mean absolute error: {fac_err.mean():.1f} points")
-    print(f"Empty predictions: {summary.FAC_pred.isna().sum()}")
     print(summary[["EF", "FAC_expert", "FAC_pred"]].corr().round(3))
 
 
