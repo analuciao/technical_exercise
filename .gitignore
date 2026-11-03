@@ -1,0 +1,16 @@
+# environment
+.venv/
+__pycache__/
+.DS_Store
+
+# data and generated files
+part2_lv_segmentation/data/
+*.npy
+*.pt
+*.dcm
+*.avi
+
+# contains PHI
+part1_data_cleaning/outputs/phi_found.csv
+part1_data_cleaning/outputs/cleaned/
+part1_data_cleaning/outputs/previews/

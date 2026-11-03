@@ -1,0 +1,164 @@
+File Name,Usability,Reasoning
+files/export_log.txt,Not Usable,Not listed in SHA256SUMS.txt; Not listed in echo-record-list.csv; Not a valid DICOM file
+files/p10/p10043001/s97338170/97338170_0001.dcm,Usable,N/A
+files/p10/p10091731/s97474898/97474898_0001.dcm,Usable,N/A
+files/p10/p10091731/s98346214/98346214_0001.dcm,Usable,N/A
+files/p10/p10240113/s90308898/90308898_0001.dcm,Usable,N/A
+files/p10/p10240113/s90308898/90308898_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
+files/p10/p10240113/s96994264/96994264_0001.dcm,Not Usable,Too short for one heartbeat: 0.24s of video
+files/p10/p10309138/s95958088/95958088_0001.dcm,Usable,N/A
+files/p10/p10375375/s96838732/96838732_0001.dcm,Usable,N/A
+files/p10/p10403707/s91589983/91589983_0001.dcm,Usable,N/A
+files/p10/p10485051/s92053882/92053882_0001.dcm,Usable,N/A
+files/p10/p10485051/s95633930/95633930_0001.dcm,Usable,N/A
+files/p10/p10587352/s99568423/99568423_0001.dcm,Usable,N/A
+files/p10/p10848821/s92053731/92053731_0001.dcm,Usable,N/A
+files/p10/p10848821/s96117074/96117074_0001.dcm,Usable,N/A
+files/p10/p10952103/s97127309/97127309_0001.dcm,Usable,N/A
+files/p10/p10996362/s93296725/93296725_0001.dcm,Usable,N/A
+files/p10/p10996362/s96516868/96516868_0001.dcm,Usable,N/A
+files/p11/p11380466/s92376739/92376739_0001.dcm,Usable,N/A
+files/p11/p11381690/s91066045/91066045_0001.dcm,Usable,N/A
+files/p11/p11631651/s93581036/93581036_0001.dcm,Usable,N/A
+files/p11/p11780537/s96331093/96331093_0001.dcm,Usable,N/A
+files/p11/p11889063/s98433983/98433983_0001.dcm,Usable,N/A
+files/p12/p12070885/s99895257/99895257_0001.dcm,Usable,N/A
+files/p12/p12078549/s91709303/91709303_0001.dcm,Usable,N/A
+files/p12/p12364603/s96475999/96475999_0001.dcm,Usable,N/A
+files/p12/p12364603/s97864539/97864539_0001.dcm,Usable,N/A
+files/p12/p12375374/s99888169/99888169_0001.dcm,Usable,N/A
+files/p12/p12588290/s91193396/91193396_0001.dcm,Usable,N/A
+files/p12/p12588290/s91193396/91193396_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
+files/p12/p12588290/s98137143/98137143_0001.dcm,Usable,N/A
+files/p12/p12698441/s94634106/94634106_0001.dcm,Usable,N/A
+files/p12/p12841844/s97176061/97176061_0001.dcm,Usable,N/A
+files/p12/p12857795/s94211233/94211233_0001.dcm,Usable,N/A
+files/p12/p12857795/s94211233/thumb_0001.dcm,Not Usable,Not listed in SHA256SUMS.txt; Not listed in echo-record-list.csv; Not a valid DICOM file
+files/p12/p12864266/s95889509/95889509_0001.dcm,Usable,N/A
+files/p12/p12963472/s99089589/99089589_0001.dcm,Usable,N/A
+files/p12/p12963472/s99089589/99089589_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
+files/p12/p12999915/s97942319/97942319_0001.dcm,Usable,N/A
+files/p13/p13022190/s96448989/96448989_0001.dcm,Usable,N/A
+files/p13/p13136667/s90723069/90723069_0001.dcm,Usable,N/A
+files/p13/p13148961/s91204810/91204810_0001.dcm,Usable,N/A
+files/p13/p13215155/s98397297/98397297_0001.dcm,Usable,N/A
+files/p13/p13215155/s98397297/98397297_0042.dcm,Not Usable,Not listed in SHA256SUMS.txt; Not listed in echo-record-list.csv
+files/p13/p13440417/s90348882/90348882_0001.dcm,Usable,N/A
+files/p13/p13499641/s97380980/97380980_0001.dcm,Not Usable,Too short for one heartbeat: only 36 frames
+files/p13/p13499641/s99376437/99376437_0001.dcm,Usable,N/A
+files/p13/p13525112/s92674155/92674155_0001.dcm,Usable,N/A
+files/p13/p13530484/s96864305/96864305_0001.dcm,Usable,N/A
+files/p13/p13530484/s98904206/98904206_0001.dcm,Usable,N/A
+files/p13/p13557522/s99438890/99438890_0001.dcm,Usable,N/A
+files/p13/p13562216/s95423601/95423601_0001.dcm,Usable,N/A
+files/p13/p13688042/s97481939/97481939_0001.dcm,Usable,N/A
+files/p13/p13695666/s95666376/95666376_0001.dcm,Usable,N/A
+files/p13/p13846505/s91972890/91972890_0001.dcm,Usable,N/A
+files/p13/p13918329/s91810710/91810710_0001.dcm,Not Usable,Fingerprint mismatch; Image data could not be decoded (ValueError)
+files/p13/p13918329/s93762320/93762320_0001.dcm,Usable,N/A
+files/p13/p13918329/s97669768/97669768_0001.dcm,Usable,N/A
+files/p13/p13995968/s98405265/98405265_0001.dcm,Usable,N/A
+files/p13/p13995968/s98405265/98405265_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
+files/p13/p13995968/s99829936/99829936_0001.dcm,Usable,N/A
+files/p13/p13995968/s99829936/99829936_0049.dcm,Not Usable,Not listed in SHA256SUMS.txt; Not listed in echo-record-list.csv
+files/p14/p14162706/s93374872/93374872_0001.dcm,Usable,N/A
+files/p14/p14397402/s91194071/91194071_0001.dcm,Usable,N/A
+files/p14/p14399896/s99421701/99421701_0001.dcm,Usable,N/A
+files/p14/p14421544/s93059202/93059202_0001.dcm,Usable,N/A
+files/p14/p14421544/s93059202/93059202_0048.dcm,Not Usable,Not listed in SHA256SUMS.txt; Not listed in echo-record-list.csv
+files/p14/p14660271/s95187077/95187077_0001.dcm,Usable,N/A
+files/p14/p14859329/s92396022/92396022_0001.dcm,Usable,N/A
+files/p14/p14859329/s92644379/92644379_0001.dcm,Usable,N/A
+files/p15/p14381450/s97917779/97917779_0001.dcm,Usable,N/A
+files/p15/p14774523/s98446792/98446792_0001.dcm,Usable,N/A
+files/p15/p15002714/s98140624/98140624_0001.dcm,Usable,N/A
+files/p15/p15101225/s93946233/93946233_0001.dcm,Usable,N/A
+files/p15/p15258168/s92163172/92163172_0001.dcm,Usable,N/A
+files/p15/p15315564/s90133663/90133663_0001.dcm,Usable,N/A
+files/p15/p15371629/s98544398/98544398_0001.dcm,Usable,N/A
+files/p15/p15458132/s91175751/91175751_0001.dcm,Usable,N/A
+files/p15/p15458132/s97003890/97003890_0001.dcm,Usable,N/A
+files/p15/p15492932/s91490271/91490271_0001.dcm,Usable,N/A
+files/p15/p15492932/s94553664/94553664_0001.dcm,Usable,N/A
+files/p15/p15492932/s98235442/98235442_0001.dcm,Usable,N/A
+files/p15/p15547696/s90746425/90746425_0001.dcm,Usable,N/A
+files/p15/p15547696/s94751815/94751815_0001.dcm,Usable,N/A
+files/p15/p15547696/s97276230/97276230_0001.dcm,Usable,N/A
+files/p15/p15749995/s94416908/94416908_0001.dcm,Usable,N/A
+files/p15/p15830962/s97213392/97213392_0001.dcm,Not Usable,Duplicate of files/p13/p13995968/s99829936/99829936_0049.dcm
+files/p15/p15858895/s95592261/95592261_0001.dcm,Usable,N/A
+files/p15/p15911712/s99915403/99915403_0001.dcm,Usable,N/A
+files/p15/p15928292/s96521572/96521572_0001.dcm,Usable,N/A
+files/p16/p16014041/s92852977/92852977_0001.dcm,Usable,N/A
+files/p16/p16014041/s93814228/93814228_0001.dcm,Usable,N/A
+files/p16/p16054816/s91200135/91200135_0001.dcm,Usable,N/A
+files/p16/p16054816/s95182948/95182948_0001.dcm,Usable,N/A
+files/p16/p16333030/s92090505/92090505_0001.dcm,Usable,N/A
+files/p16/p16333030/s98280409/98280409_0001.dcm,Usable,N/A
+files/p16/p16333030/s98280409/98280409_0047.dcm,Not Usable,Not listed in SHA256SUMS.txt; Duplicate of files/p15/p15458132/s97003890/97003890_0001.dcm; Not listed in echo-record-list.csv
+files/p16/p16344792/s96568812/96568812_0001.dcm,Usable,N/A
+files/p16/p16344792/s97960444/97960444_0001.dcm,Usable,N/A
+files/p16/p16374609/s90084092/90084092_0001.dcm,Usable,N/A
+files/p16/p16434511/s91187912/91187912_0001.dcm,Usable,N/A
+files/p16/p16871128/s95917540/95917540_0001.dcm,Usable,N/A
+files/p17/p16951828/s98501522/98501522_0001.dcm,Usable,N/A
+files/p17/p17000660/s98324538/98324538_0001.dcm,Usable,N/A
+files/p17/p17047292/s94815979/94815979_0001.dcm,Usable,N/A
+files/p17/p17115105/s90589708/90589708_0001.dcm,Usable,N/A
+files/p17/p17161496/s90865151/90865151_0001.dcm,Usable,N/A
+files/p17/p17161496/s98121916/98121916_0001.dcm,Usable,N/A
+files/p17/p17411145/s94175640/94175640_0001.dcm,Usable,N/A
+files/p17/p17467948/s94392552/94392552_0001.dcm,Usable,N/A
+files/p17/p17476535/s99207700/99207700_0001.dcm,Not Usable,Too short for one heartbeat: only 36 frames
+files/p17/p17547244/s96633142/96633142_0001.dcm,Usable,N/A
+files/p17/p17559488/s90494667/90494667_0001.dcm,Usable,N/A
+files/p17/p17559488/s97834447/97834447_0001.dcm,Not Usable,Duplicate of files/p14/p14421544/s93059202/93059202_0048.dcm
+files/p17/p17697291/s92743836/92743836_0001.dcm,Usable,N/A
+files/p17/p17744687/s98568073/98568073_0001.dcm,Usable,N/A
+files/p17/p17744687/s98568073/98568073_0038.dcm,Not Usable,Not listed in SHA256SUMS.txt; Duplicate of files/p17/p17559488/s90494667/90494667_0001.dcm; Not listed in echo-record-list.csv
+files/p17/p17825153/s92738271/92738271_0001.dcm,Usable,N/A
+files/p17/p17895352/s95400184/95400184_0001.dcm,Not Usable,Fingerprint mismatch; Image data could not be decoded (ValueError)
+files/p17/p17900586/s90261647/90261647_0001.dcm,Not Usable,Too short for one heartbeat: only 36 frames
+files/p17/p17900586/s96753700/96753700_0001.dcm,Usable,N/A
+files/p17/p17900586/s99751189/99751189_0001.dcm,Usable,N/A
+files/p18/p18035066/s95697734/95697734_0001.dcm,Usable,N/A
+files/p18/p18098242/s97666178/97666178_0001.dcm,Usable,N/A
+files/p18/p18098242/s97666178/97666178_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
+files/p18/p18380500/s92398592/92398592_0001.dcm,Usable,N/A
+files/p18/p18380500/s94182657/94182657_0001.dcm,Usable,N/A
+files/p18/p18380952/s92256969/92256969_0001.dcm,Usable,N/A
+files/p18/p18492845/s91473256/91473256_0001.dcm,Usable,N/A
+files/p18/p18492845/s91473256/91473256_0058.dcm,Not Usable,Not listed in SHA256SUMS.txt; Not listed in echo-record-list.csv
+files/p18/p18492845/s94533191/94533191_0001.dcm,Usable,N/A
+files/p18/p18602147/s95377701/95377701_0001.dcm,Usable,N/A
+files/p18/p18894983/s96232179/96232179_0001.dcm,Not Usable,Too short for one heartbeat: 0.20s of video
+files/p18/p18953850/s93832338/93832338_0001.dcm,Usable,N/A
+files/p18/p18953850/s96318078/96318078_0001.dcm,Usable,N/A
+files/p19/p19004495/s94482222/94482222_0001.dcm,Usable,N/A
+files/p19/p19037402/s95297386/95297386_0001.dcm,Usable,N/A
+files/p19/p19159237/s92044998/92044998_0001.dcm,Usable,N/A
+files/p19/p19175002/s92289176/92289176_0001.dcm,Usable,N/A
+files/p19/p19191304/s95086630/95086630_0001.dcm,Usable,N/A
+files/p19/p19191304/s96024298/96024298_0001.dcm,Usable,N/A
+files/p19/p19198501/s96646916/96646916_0001.dcm,Not Usable,Fingerprint mismatch; Image data could not be decoded (ValueError)
+files/p19/p19286453/s96622228/96622228_0001.dcm,Usable,N/A
+files/p19/p19286453/s99463138/99463138_0001.dcm,Usable,N/A
+files/p19/p19320824/s92285143/92285143_0001.dcm,Usable,N/A
+files/p19/p19320824/s95563849/95563849_0001.dcm,Not Usable,Duplicate of files/p18/p18492845/s91473256/91473256_0058.dcm
+files/p19/p19320824/s99149882/99149882_0001.dcm,Usable,N/A
+files/p19/p19377589/s93492740/93492740_0001.dcm,Usable,N/A
+files/p19/p19458896/s98553069/98553069_0001.dcm,Usable,N/A
+files/p19/p19458896/s98553069/98553069_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
+files/p19/p19487947/s98547287/98547287_0001.dcm,Not Usable,Duplicate of files/p13/p13215155/s98397297/98397297_0042.dcm
+files/p19/p19510701/s92942875/92942875_0001.dcm,Usable,N/A
+files/p19/p19510701/s92942875/92942875_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
+files/p19/p19641909/s91241070/91241070_0001.dcm,Usable,N/A
+files/p19/p19641909/s94327760/94327760_0001.dcm,Usable,N/A
+files/p19/p19762467/s90500448/90500448_0001.dcm,Usable,N/A
+files/p19/p19762467/s98630170/98630170_0001.dcm,Usable,N/A
+files/p19/p19877562/s95006692/95006692_0001.dcm,Usable,N/A
+files/p19/p19897006/s92265743/92265743_0001.dcm,Usable,N/A
+files/p19/p19903485/s96561118/96561118_0001.dcm,Usable,N/A
+files/p19/p19903485/s97331994/97331994_0001.dcm,Usable,N/A
+files/p12/p12857795/s90296051/90296051_0001.dcm,Not Usable,Listed in echo-record-list.csv but missing from folder
+files/p15/p15928292/s98444219/98444219_0001.dcm,Not Usable,Listed in echo-record-list.csv but missing from folder
