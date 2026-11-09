@@ -22,9 +22,9 @@ MIN_FRAMES_FALLBACK = 40   # only used when the header has no FrameTime
 # step 2 
 CURRENT_YEAR = 2026        # shifted dates are in the future (~2150)
 PHI_KEYWORDS = {
-    "PatientName", "PatientID", "OtherPatientIDs", "PatientBirthDate", "PatientBirthTime",
+    "PatientName", "OtherPatientIDs", "PatientBirthDate", "PatientBirthTime",
     "AccessionNumber", "PatientAddress", "PatientTelephoneNumbers",
-    "InstitutionName", "InstitutionAddress",
+    "InstitutionName", "InstitutionAddress" #####
 }
 TEXT_VRS = {"LO", "SH", "ST", "LT", "UT"}
 
@@ -77,10 +77,11 @@ def check_checksum(file_path, actual, expected, result):
         result.fail("Fingerprint mismatch")
 
 
+
 def check_duplicate(actual, seen_hashes, result):
     if actual in seen_hashes:
         result.fail(f"Duplicate of {seen_hashes[actual]}")
-    else:
+    elif result.usability == "Usable":
         seen_hashes[actual] = result.name
 
 
@@ -131,6 +132,15 @@ def check_heartbeat(ds, num_frames, result):
 
 
 # step 2: finding PHI
+def age_is_90_plus(ds):
+    """Return True if the PatientAge field is 90 years or more."""
+    age_str = as_text(ds.get("PatientAge", ""))
+    if len(age_str) != 4 or not age_str.endswith("Y"):
+        return False
+    try:
+        return int(age_str[:3]) >= 90
+    except ValueError:
+        return False
 
 def as_text(value):
     """turn any value into searchable uppercase text."""
@@ -152,7 +162,6 @@ def collect_identifiers(ds):
             known.update(part for part in re.split(r"[\^\s]+", text) if len(part) >= 2)
     known.discard("")
     return known
-
 
 def is_real_date(value):
     year = as_text(value)[:4]
@@ -190,7 +199,10 @@ def scan_header(ds, known):
             value = as_text(elem.value)
             findings.append([str(elem.tag), elem.keyword or elem.name, elem.VR,
                              value[:60] + ("..." if len(value) > 60 else ""), reason])
+    if age_is_90_plus(ds):
+        findings.append(["(0010,1010)", "PatientAge", "AS", as_text(ds.PatientAge), "Patient is 90+ years old"])
     return findings
+
 
 
 # step 2: cleaning
@@ -224,8 +236,10 @@ def clean(ds, known, pseudonym, blackout_box):
             continue
         if find_reason(elem, known) is None:
             continue
-        if elem.keyword in ("PatientID", "PatientName"):
+        if elem.keyword in ("PatientName"):
             elem.value = pseudonym     # keeps a patient's files linked without the real ID
+        if age_is_90_plus(ds) and elem.keyword == "PatientAge":
+            elem.value = "090Y"        # keep the age but remove the real birth date
         else:
             elem.value = ""            # blank rather than delete, so the file stays valid DICOM
     ds.remove_private_tags()
@@ -233,7 +247,6 @@ def clean(ds, known, pseudonym, blackout_box):
         black_out(ds, blackout_box)
     ds.PatientIdentityRemoved = "YES"
     ds.DeidentificationMethod = "Names/IDs replaced, real dates blanked, private tags removed"
-
 
 def verify(cleaned_path, known):
     """Reopen the cleaned file and list any known name or ID still in the header."""
@@ -278,7 +291,6 @@ def main():
             # step 1
             actual = sha256(file_path)
             check_checksum(file_path, actual, expected, result)
-            check_duplicate(actual, seen_hashes, result)
             if rel_path not in echo_list:
                 result.fail("Not listed in echo-record-list.csv")
 
@@ -287,6 +299,8 @@ def main():
                 num_frames = check_is_video(ds, result)
                 if num_frames > 1:
                     check_heartbeat(ds, num_frames, result)
+
+            check_duplicate(actual, seen_hashes, result)
 
             check_writer.writerow([result.name, result.usability, "; ".join(result.reasoning) or "N/A"])
 
@@ -304,7 +318,7 @@ def main():
             usable_count += 1
 
             real_id = as_text(ds.get("PatientID", "")) or "UNKNOWN"
-            pseudonym = pseudonyms.setdefault(real_id, f"PATIENT_{len(pseudonyms) + 1:03d}")
+            pseudonym = pseudonyms.setdefault(real_id)
 
             save_preview(ds, PREVIEW_DIR / "before" / f"{file_path.stem}.png")
             needs_blackout = BURN_IN_BOXES is not None

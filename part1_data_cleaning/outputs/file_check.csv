@@ -85,7 +85,7 @@ files/p15/p15547696/s90746425/90746425_0001.dcm,Usable,N/A
 files/p15/p15547696/s94751815/94751815_0001.dcm,Usable,N/A
 files/p15/p15547696/s97276230/97276230_0001.dcm,Usable,N/A
 files/p15/p15749995/s94416908/94416908_0001.dcm,Usable,N/A
-files/p15/p15830962/s97213392/97213392_0001.dcm,Not Usable,Duplicate of files/p13/p13995968/s99829936/99829936_0049.dcm
+files/p15/p15830962/s97213392/97213392_0001.dcm,Usable,N/A
 files/p15/p15858895/s95592261/95592261_0001.dcm,Usable,N/A
 files/p15/p15911712/s99915403/99915403_0001.dcm,Usable,N/A
 files/p15/p15928292/s96521572/96521572_0001.dcm,Usable,N/A
@@ -95,7 +95,7 @@ files/p16/p16054816/s91200135/91200135_0001.dcm,Usable,N/A
 files/p16/p16054816/s95182948/95182948_0001.dcm,Usable,N/A
 files/p16/p16333030/s92090505/92090505_0001.dcm,Usable,N/A
 files/p16/p16333030/s98280409/98280409_0001.dcm,Usable,N/A
-files/p16/p16333030/s98280409/98280409_0047.dcm,Not Usable,Not listed in SHA256SUMS.txt; Duplicate of files/p15/p15458132/s97003890/97003890_0001.dcm; Not listed in echo-record-list.csv
+files/p16/p16333030/s98280409/98280409_0047.dcm,Not Usable,Not listed in SHA256SUMS.txt; Not listed in echo-record-list.csv; Duplicate of files/p15/p15458132/s97003890/97003890_0001.dcm
 files/p16/p16344792/s96568812/96568812_0001.dcm,Usable,N/A
 files/p16/p16344792/s97960444/97960444_0001.dcm,Usable,N/A
 files/p16/p16374609/s90084092/90084092_0001.dcm,Usable,N/A
@@ -112,10 +112,10 @@ files/p17/p17467948/s94392552/94392552_0001.dcm,Usable,N/A
 files/p17/p17476535/s99207700/99207700_0001.dcm,Not Usable,Too short for one heartbeat: only 36 frames
 files/p17/p17547244/s96633142/96633142_0001.dcm,Usable,N/A
 files/p17/p17559488/s90494667/90494667_0001.dcm,Usable,N/A
-files/p17/p17559488/s97834447/97834447_0001.dcm,Not Usable,Duplicate of files/p14/p14421544/s93059202/93059202_0048.dcm
+files/p17/p17559488/s97834447/97834447_0001.dcm,Usable,N/A
 files/p17/p17697291/s92743836/92743836_0001.dcm,Usable,N/A
 files/p17/p17744687/s98568073/98568073_0001.dcm,Usable,N/A
-files/p17/p17744687/s98568073/98568073_0038.dcm,Not Usable,Not listed in SHA256SUMS.txt; Duplicate of files/p17/p17559488/s90494667/90494667_0001.dcm; Not listed in echo-record-list.csv
+files/p17/p17744687/s98568073/98568073_0038.dcm,Not Usable,Not listed in SHA256SUMS.txt; Not listed in echo-record-list.csv; Duplicate of files/p17/p17559488/s90494667/90494667_0001.dcm
 files/p17/p17825153/s92738271/92738271_0001.dcm,Usable,N/A
 files/p17/p17895352/s95400184/95400184_0001.dcm,Not Usable,Fingerprint mismatch; Image data could not be decoded (ValueError)
 files/p17/p17900586/s90261647/90261647_0001.dcm,Not Usable,Too short for one heartbeat: only 36 frames
@@ -144,12 +144,12 @@ files/p19/p19198501/s96646916/96646916_0001.dcm,Not Usable,Fingerprint mismatch;
 files/p19/p19286453/s96622228/96622228_0001.dcm,Usable,N/A
 files/p19/p19286453/s99463138/99463138_0001.dcm,Usable,N/A
 files/p19/p19320824/s92285143/92285143_0001.dcm,Usable,N/A
-files/p19/p19320824/s95563849/95563849_0001.dcm,Not Usable,Duplicate of files/p18/p18492845/s91473256/91473256_0058.dcm
+files/p19/p19320824/s95563849/95563849_0001.dcm,Usable,N/A
 files/p19/p19320824/s99149882/99149882_0001.dcm,Usable,N/A
 files/p19/p19377589/s93492740/93492740_0001.dcm,Usable,N/A
 files/p19/p19458896/s98553069/98553069_0001.dcm,Usable,N/A
 files/p19/p19458896/s98553069/98553069_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
-files/p19/p19487947/s98547287/98547287_0001.dcm,Not Usable,Duplicate of files/p13/p13215155/s98397297/98397297_0042.dcm
+files/p19/p19487947/s98547287/98547287_0001.dcm,Usable,N/A
 files/p19/p19510701/s92942875/92942875_0001.dcm,Usable,N/A
 files/p19/p19510701/s92942875/92942875_0002.dcm,Not Usable,"Single image, not a video (Secondary Capture Image Storage)"
 files/p19/p19641909/s91241070/91241070_0001.dcm,Usable,N/A
